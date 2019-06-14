@@ -21,7 +21,8 @@ public class MemberFileReader {
 			m.setUid(strArr[0]);
 			m.setUpw(strArr[1]);
 			m.setUname(strArr[2]);
-			m.setContact(strArr[3]);			
+			m.setContact(strArr[3]);
+			m.setJuminNum(strArr[4]);			
 			retObj.add(m);			
 		}
 		return retObj;

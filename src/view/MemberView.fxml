@@ -20,42 +20,46 @@
             <Font name="System Italic" size="14.0" />
          </font>
       </Label>
-      <GridPane layoutX="18.0" layoutY="25.0" prefHeight="124.0" prefWidth="364.0">
+      <GridPane layoutX="18.0" layoutY="25.0" prefHeight="141.0" prefWidth="364.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="27.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="33.0" minHeight="19.0" prefHeight="30.0" />
         </rowConstraints>
          <children>
             <Label text="아이디" />
             <Label text="암호" GridPane.rowIndex="1" />
             <Label text="이름" GridPane.rowIndex="2" />
+            <Label text="연락처" GridPane.rowIndex="3" />   
+            <Label text="주민번호" GridPane.rowIndex="4" />                     
             <TextField fx:id="tfID" GridPane.columnIndex="1" />            
             <PasswordField fx:id="tfPW" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="tfName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="연락처" GridPane.rowIndex="3" />
             <TextField fx:id="tfContact" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tfJuminNum" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <Button id="btnCrete" fx:id="btnCreate" layoutX="200.0" layoutY="193.0" mnemonicParsing="false" onMouseClicked="#handleCreate" text="등록" />
       <Button id="btnUpdate" fx:id="btnUpdate" layoutX="264.0" layoutY="193.0" mnemonicParsing="false" onMouseClicked="#handleUpdate" text="수정" />
       <Button id="btnDelete" fx:id="btnDelete" layoutX="328.0" layoutY="193.0" mnemonicParsing="false" onMouseClicked="#handleDelete" text="삭제" />
       
-      <TableView fx:id="tableViewMember" layoutX="18.0" layoutY="238.0" prefHeight="269.0" prefWidth="364.0">
+      <TableView fx:id="tableViewMember" layoutX="18.0" layoutY="238.0" prefHeight="269.0" prefWidth="424.0">
         <columns>
           <TableColumn fx:id="columnID" prefWidth="60.0" text="아이디" />
-          <TableColumn fx:id="columnPW" prefWidth="82.0" text="암호" />
-            <TableColumn fx:id="columnName" prefWidth="67.0" text="이름" />
-            <TableColumn fx:id="columnContact" prefWidth="153.0" text="연락처" />
+          <TableColumn fx:id="columnPW" prefWidth="77.0" text="암호" />
+            <TableColumn fx:id="columnName" prefWidth="71.0" text="이름" />
+            <TableColumn fx:id="columnContact" prefWidth="120.0" text="연락처" />
+            <TableColumn fx:id="columnJuminNum" prefWidth="95.0" text="주민번호" />
         </columns>
       </TableView>
-      <Button fx:id="btnExecute" layoutX="703.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#handleExecute" text="실행" />
-      <TextArea fx:id="taExecute" layoutX="395.0" layoutY="55.0" prefHeight="232.0" prefWidth="364.0" />
-      <TextField fx:id="tfExecute" layoutX="395.0" layoutY="25.0" prefHeight="23.0" prefWidth="199.0" promptText="입력" />
+      <Button fx:id="btnExecute" layoutX="718.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#handleExecute" text="실행" />
+      <TextArea fx:id="taExecute" layoutX="486.0" layoutY="55.0" prefHeight="232.0" prefWidth="273.0" />
+      <TextField fx:id="tfExecute" layoutX="486.0" layoutY="25.0" prefHeight="23.0" prefWidth="199.0" promptText="입력" />
    </children>
 </AnchorPane>

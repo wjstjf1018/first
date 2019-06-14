@@ -10,20 +10,22 @@ public class Member { // DB의 레코드와 매핑되는 객체
 	private StringProperty uid; // DB의 필드와 매핑
 	private StringProperty upw;
 	private StringProperty uname;
-	private final StringProperty contact;
+	private StringProperty contact;
+	private StringProperty juminNum;	
 	/*
     private final IntegerProperty zipcode;
     private ObjectProperty<LocalDate> birthday;
 	*/
 	public Member() {
-		this(null, null, null, null);
+		this(null, null, null, null, null);
 	}
 	
-	public Member(String id, String pw, String name, String contact) {
+	public Member(String id, String pw, String name, String contact, String juminNum) {
 		this.uid = new SimpleStringProperty(id);
 		this.uname = new SimpleStringProperty(name);
 		this.upw = new SimpleStringProperty(pw);
 		this.contact = new SimpleStringProperty(contact);
+		this.juminNum = new SimpleStringProperty(juminNum);		
 	}
 	
 	public String getUid() {
@@ -64,5 +66,15 @@ public class Member { // DB의 레코드와 매핑되는 객체
     }
     public StringProperty contactProperty() {
         return contact;
+    }  
+
+    public String getJuminNum() {
+    	return this.juminNum.get();
+    }
+    public void setJuminNum(String juminNum) {
+    	this.juminNum.set(juminNum);
+    }
+    public StringProperty juminNumProperty() {
+        return juminNum;
     }    
 }

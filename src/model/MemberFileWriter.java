@@ -18,7 +18,8 @@ public class MemberFileWriter {
 				fw.write(m.getUid() + "\t");
 				fw.write(m.getUpw() + "\t");
 				fw.write(m.getUname() + "\t");
-				fw.write(m.getContact() + "\n");				
+				fw.write(m.getContact() + "\t");				
+				fw.write(m.getJuminNum() + "\n");				
 				fw.flush();
 			} catch (IOException e) {
 			}			
