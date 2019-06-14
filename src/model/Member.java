@@ -93,8 +93,8 @@ public class Member { // DB의 레코드와 매핑되는 객체
     	Calendar c = Calendar.getInstance();
     	String ntime = String.valueOf(c.get(Calendar.YEAR)).substring(0, 4);
     	int Numntime = Integer.parseInt(ntime);
-    	int myage = Numntime-NumJuminNum+1;
-    	String strMyage = String.valueOf(myage);
+    	int strAge = Numntime-NumJuminNum+1;
+    	String strMyage = String.valueOf(strAge);
     	age = strMyage;
     	
     	this.age.set(age);  

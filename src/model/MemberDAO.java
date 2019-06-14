@@ -60,8 +60,7 @@ public class MemberDAO {
 				memberList.add(member);
 				fw.saveMember(memberList);
 				ret = 0;
-				
-				
+								
 		    	//주민번호의 값을 가져옴
 		    	String strJuminNum = member.getJuminNum().substring(0, 4);
 		    	int NumJuminNum = Integer.parseInt(strJuminNum);
