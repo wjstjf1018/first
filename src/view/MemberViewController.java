@@ -35,6 +35,7 @@ public class MemberViewController implements Initializable {
 	@FXML	private TextField tfName;
 	@FXML	private TextField tfContact;
 	@FXML	private TextField tfJuminNum;	
+	@FXML	private TextField tfAge;
 	
 	@FXML 	private TableView<Member> tableViewMember;
 	@FXML	private TableColumn<Member, String> columnName;
@@ -42,6 +43,7 @@ public class MemberViewController implements Initializable {
 	@FXML	private TableColumn<Member, String> columnPW;
 	@FXML	private TableColumn<Member, String> columnContact;
 	@FXML	private TableColumn<Member, String> columnJuminNum;
+	@FXML	private TableColumn<Member, String> columnAge;
 	
 	// Member : model이라고도 하고 DTO, VO 라고도 함
 	// 시스템 밖에 저장된 정보를 객체들간에 사용하는 정보로 변환한 자료구조 또는 객체
@@ -65,6 +67,7 @@ public class MemberViewController implements Initializable {
 		columnPW.setCellValueFactory(cvf -> cvf.getValue().upwProperty());
 		columnContact.setCellValueFactory(cvf -> cvf.getValue().contactProperty());		
 		columnJuminNum.setCellValueFactory(cvf -> cvf.getValue().juminNumProperty());	
+		columnAge.setCellValueFactory(cvf -> cvf.getValue().ageProperty());	
 		
 		tableViewMember.getSelectionModel().selectedItemProperty().addListener(
 				(observable, oldValue, newValue) -> showMemberInfo(newValue));
@@ -94,14 +97,16 @@ public class MemberViewController implements Initializable {
 			tfPW.setText(member.getUpw());
 			tfName.setText(member.getUname());
 			tfContact.setText(member.getContact());
-			tfJuminNum.setText(member.getJuminNum());			
+			tfJuminNum.setText(member.getJuminNum());		
+			tfAge.setText(member.getAge());			
 		}
 		 else {
 			 tfID.setText("");
 			 tfPW.setText("");
 		     tfName.setText("");
 		     tfContact.setText("010");
-		     tfJuminNum.setText("");		     
+		     tfJuminNum.setText("");	
+		     tfAge.setText("");			     
 		 }
 	}
 	
@@ -118,18 +123,18 @@ public class MemberViewController implements Initializable {
 	private void handleCreate() { // event source, listener, handler
 		if(tfID.getText().length() > 0) {
 			Member newMember = 
-					new Member(tfID.getText(), tfPW.getText(), tfName.getText(), tfContact.getText(), tfJuminNum.getText());
+					new Member(tfID.getText(), tfPW.getText(), tfName.getText(), tfContact.getText(), tfJuminNum.getText(), tfAge.getText());
 			if(memberService.findByUid(newMember) < 0) {
 				data.add(newMember);			
 				tableViewMember.setItems(data);
-				memberService.create(newMember);				
+				memberService.create(newMember);
 			}
 		} else
 			showAlert("ID 입력오류");
 	}
 	@FXML 
 	private void handleUpdate() {
-		Member newMember = new Member(tfID.getText(), tfPW.getText(), tfName.getText(), tfContact.getText(), tfJuminNum.getText());
+		Member newMember = new Member(tfID.getText(), tfPW.getText(), tfName.getText(), tfContact.getText(), tfJuminNum.getText(), tfAge.getText());
 
 		int selectedIndex = tableViewMember.getSelectionModel().getSelectedIndex();
 		if(selectedIndex != memberService.findByUid(newMember)) {

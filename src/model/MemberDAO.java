@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import model.Member;
 import model.MemberFileWriter;
@@ -59,6 +60,21 @@ public class MemberDAO {
 				memberList.add(member);
 				fw.saveMember(memberList);
 				ret = 0;
+				
+				
+		    	//주민번호의 값을 가져옴
+		    	String strJuminNum = member.getJuminNum().substring(0, 4);
+		    	int NumJuminNum = Integer.parseInt(strJuminNum);
+		    	//현재년도를 가져옴
+		    	Calendar c = Calendar.getInstance();
+		    	String ntime = String.valueOf(c.get(Calendar.YEAR)).substring(0, 4);
+		    	int Numntime = Integer.parseInt(ntime);
+		    	int myage = Numntime-NumJuminNum+1;
+		    	String strMyage = String.valueOf(myage);
+		    	String age = member.getAge();
+		    	age = strMyage;
+		    	member.setAge(age);
+		    	
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -75,6 +91,20 @@ public class MemberDAO {
 				memberList.set(index,member);
 				fw.saveMember(memberList);
 				ret = 0;
+				
+		    	//주민번호의 값을 가져옴
+		    	String strJuminNum = member.getJuminNum().substring(0, 4);
+		    	int NumJuminNum = Integer.parseInt(strJuminNum);
+		    	//현재년도를 가져옴
+		    	Calendar c = Calendar.getInstance();
+		    	String ntime = String.valueOf(c.get(Calendar.YEAR)).substring(0, 4);
+		    	int Numntime = Integer.parseInt(ntime);
+		    	int myage = Numntime-NumJuminNum+1;
+		    	String strMyage = String.valueOf(myage);
+		    	String age = member.getAge();
+		    	age = strMyage;
+		    	member.setAge(age);
+		    	
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
